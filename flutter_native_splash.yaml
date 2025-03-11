@@ -1,0 +1,10 @@
+flutter_native_splash:
+  background_image: "assets/images/background.png"
+
+  android_12:
+    image: "assets/images/android_above_12.png" # يفضل صورة أيقونة صغيرة بدلاً من الخلفية
+    color: "#18171c"
+
+  android_gravity: fill
+  ios_content_mode: scaleToFill
+  fullscreen: true
