@@ -30,9 +30,11 @@ class ConstValue {
   "الطلاب",
   "الحضور",
   "الدفع"
-
-
-
-  ];
+];
   ////////////////////////////////////////////////////
+  static const String kEducationStages= "المراحل التعليمية";
+      static const String kGroups= "المجموعات";
+      static const String kStudents= "الطلاب";
+      static const String kAudience= "الحضور";
+      static const String kPaying=  "الدفع";
 }

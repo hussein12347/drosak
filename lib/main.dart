@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(ConstValue.kWidthDesignScreen, ConstValue.kHeightDesignScreen),
       child: MaterialApp(
         theme: ThemeData(
+
           scaffoldBackgroundColor: ColorsManger.kBlackColor,
         ),
         debugShowCheckedModeBanner: false,
