@@ -3,7 +3,6 @@ import 'package:drosak_mangment_app/view/explore_app/widgets/appBar.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../../controller/explore_app_screen/explore_app_controller.dart';
 import '../widgets/body.dart';
 
 class ExploreAppScreen extends StatefulWidget {

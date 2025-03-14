@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:drosak_mangment_app/core/resources/assets_values_manger.dart';
-import 'package:drosak_mangment_app/core/resources/routes_manager.dart';
 
 import '../../model/main_screen/bottom_nav_bar_tab_model.dart';
 import '../../view/audience/screens/audience_screen.dart';
@@ -50,8 +49,8 @@ class MainScreenController {
 
   void initControllers() {
     streamControllerBody = StreamController<int>.broadcast();
-    inputDataBody = streamControllerBody!.sink;
-    outputDataBody = streamControllerBody!.stream;
+    inputDataBody = streamControllerBody.sink;
+    outputDataBody = streamControllerBody.stream;
     inputDataBody.add(currentIndexScreen);
   }
 

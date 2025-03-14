@@ -37,4 +37,10 @@ class ConstValue {
       static const String kStudents= "الطلاب";
       static const String kAudience= "الحضور";
       static const String kPaying=  "الدفع";
+      ////////////////////////////////////////
+static const String kEducationStagesTableName="educationStagesTableName";
+static const String kEducationStagesColumnID="id";
+static const String kEducationStagesColumnName="name";
+static const String kEducationStagesColumnDescription="description";
+static const String kEducationStagesColumnImage="image";
 }

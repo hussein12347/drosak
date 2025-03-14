@@ -1,5 +1,4 @@
-import 'package:drosak_mangment_app/core/resources/const_values.dart';
-import 'package:drosak_mangment_app/core/resources/routes_manager.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../view/main_screen/screen/main_screen.dart';

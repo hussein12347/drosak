@@ -1,9 +1,7 @@
-import 'package:drosak_mangment_app/core/resources/routes_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../controller/explore_app_screen/explore_app_controller.dart';
-import '../../../core/resources/assets_values_manger.dart';
 import '../../../core/resources/const_values.dart';
 import 'custom_container_of_name_and_image.dart';
 

@@ -7,5 +7,5 @@ class ColorsManger{
   static const Color kPrimaryColor=Color(0xffFFE00B);
   static const Color kGrayBottomNavBarColor=Color(0xff1E1E1E);
   static const Color kGrayIconColor=Color(0xff47463C
-  );
+  );  static const Color kGrayTextColor= Color(0xff514C4C);
 }

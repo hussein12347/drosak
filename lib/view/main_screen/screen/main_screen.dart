@@ -1,10 +1,6 @@
 import 'package:drosak_mangment_app/controller/main_screen/mainScreen_controller.dart';
-import 'package:drosak_mangment_app/core/resources/assets_values_manger.dart';
-import 'package:drosak_mangment_app/core/resources/colors_manger.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../model/main_screen/bottom_nav_bar_tab_model.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 
 class MainScreen extends StatefulWidget {

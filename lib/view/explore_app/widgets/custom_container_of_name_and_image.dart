@@ -20,8 +20,8 @@ class CustomContainerOfNameAndImage extends StatelessWidget {
       onTap: onTap,
       child: Stack(clipBehavior: Clip.none, children: [
         Positioned(
-            bottom: -16,
-            left: -16,
+            bottom: -16.h,
+            left: -16.w,
             child: Container(
               width: 32.w,
               height: 32.h,
