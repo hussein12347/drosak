@@ -24,6 +24,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar:CustomBottomNavBarOnBoardingScreen(pageLength:  ConstValue.listOnBoardingImage.length, onTapNext: () {
         if(_controller.currentIndex==ConstValue.listOnBoardingImage){
           _controller.disposeController();

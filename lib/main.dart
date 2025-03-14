@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:drosak_mangment_app/core/resources/colors_manger.dart';
 import 'package:drosak_mangment_app/core/resources/const_values.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -46,6 +47,9 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(ConstValue.kWidthDesignScreen, ConstValue.kHeightDesignScreen),
       child: MaterialApp(
+        theme: ThemeData(
+          scaffoldBackgroundColor: ColorsManger.kBlackColor,
+        ),
         debugShowCheckedModeBanner: false,
         routes: RoutesManager.routes,
         initialRoute: routeName,
