@@ -20,4 +20,9 @@ static const kBottomNavBar_2="$_baseUrlImage/bottomNavBar2.svg";
 static const kBottomNavBar_3="$_baseUrlImage/bottomNavBar3.svg";
 static const kBottomNavBar_4="$_baseUrlImage/bottomNavBar4.svg";
 static const kBottomNavBar_5="$_baseUrlImage/bottomNavBar5.svg";
+//////////////////////////////////////////////////////////////////
+  static const kPlaceholder="$_baseUrlImage/placeholder.svg";
+  static const kTestImage="$_baseUrlImage/test.png";
+  static const kStudentTestImage="$_baseUrlImage/student_test.png";
+
 }

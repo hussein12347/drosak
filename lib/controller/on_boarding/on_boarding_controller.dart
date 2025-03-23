@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:drosak_mangment_app/core/resources/const_values.dart';
-import 'package:drosak_mangment_app/core/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/resources/duration_values_manger.dart';
@@ -39,6 +38,6 @@ class OnBoardingController {
 
   }
   void skip(BuildContext context) {
-    Navigator.pushReplacementNamed(context, RoutesName.kExploreAppScreen);
+    // Navigator.pushReplacementNamed(context, RoutesName.kExploreAppScreen);
   }
 }

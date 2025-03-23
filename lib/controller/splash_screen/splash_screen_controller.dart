@@ -25,9 +25,9 @@ class SplashScreenController{
 
   void startAnimation() {
        _animationController =
-    AnimationController(duration: const Duration(seconds: 2), vsync: vsync)..addStatusListener((status) {
+    AnimationController(duration: const Duration(seconds: 1), vsync: vsync)..addStatusListener((status) {
       if(status==AnimationStatus.completed){
-        Timer(const Duration(seconds: 2), () {
+        Timer(const Duration(seconds: 1), () {
           goToOnBoardingScreen();
         });
       }
@@ -42,6 +42,6 @@ class SplashScreenController{
   }
 
   void goToOnBoardingScreen() {
-       Navigator.pushReplacementNamed(context,RoutesName.kOnBoardingScreen );
+       Navigator.pushReplacementNamed(context,RoutesName.kMainScreen );
   }
 }

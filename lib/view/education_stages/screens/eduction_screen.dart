@@ -1,12 +1,9 @@
-import 'package:drosak_mangment_app/core/resources/colors_manger.dart';
-import 'package:drosak_mangment_app/core/resources/const_values.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
-import '../../../controller/education_stages/educationStagesController.dart';
-import '../../../core/resources/fonts_manger.dart';
-import '../../../core/resources/widgets/spaces/horizontal_vertical_space.dart';
-import '../widgets/custom_item_stage.dart';
+import '../../../core/resources/const_values.dart';
+import '../../../core/resources/provider/educatoin_stages.dart';
+import '../../../core/widgets/app_bar/custom_app_bar.dart';
 import '../widgets/custom_list_view_item_stages.dart';
 
 class EducationScreen extends StatefulWidget {
@@ -18,41 +15,37 @@ class EducationScreen extends StatefulWidget {
 
 class _EducationScreenState extends State<EducationScreen> {
   @override
-  late EducationStagesController _controller;
-
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _controller = EducationStagesController();
+    Future.microtask(() {
+      Provider.of<EducationStagesProvider>(context, listen: false)
+          .getAllItemList();
+    });
   }
 
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<EducationStagesProvider>(context);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: ColorsManger.kPrimaryColor,
-            automaticallyImplyLeading: false,
-            title: Text(
-              ConstValue.kEducationStages,
-              style: TextStyle(
-                fontFamily: FontsName.geDinerFont,
-                fontSize: FontsSize.f20,
-              ),
-            ),
-            actions: [
-              IconButton(
-                iconSize: 30,
-                onPressed: () {},
-                icon: const Icon(Icons.search),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.add_circle_outline),
-              ),
-            ],
-          ),
-          body: CustomListViewItemStages(listItemStageModel: _controller.listItemStageModel,)),
+        appBar: buildAppBar( context: context, length: provider.listItemStageModel.length, openBottomSheet: () {
+          provider.openBottomSheet(context: context);
+
+        }, showCustomSearch: () {
+          provider.showCustomSearch(context: context);
+        }, title: ConstValue.kEducationStages),
+        body: CustomListViewItemStages(
+          itemStageModel:
+          Provider.of<EducationStagesProvider>(context, listen: true)
+              .listItemStageModel,
+          onRefresh: () async {
+            await provider.getAllItemList();
+          },
+
+        ),
+      ),
     );
   }
+
 }

@@ -1,20 +1,31 @@
 import 'dart:io';
-
 import 'package:drosak_mangment_app/core/resources/colors_manger.dart';
 import 'package:drosak_mangment_app/core/resources/const_values.dart';
+import 'package:drosak_mangment_app/core/resources/provider/educatoin_stages.dart';
+import 'package:drosak_mangment_app/core/resources/provider/groups.dart';
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:provider/provider.dart';
+import 'core/resources/provider/students_provider.dart';
 import 'core/resources/routes_manager.dart';
 
+late String? routeName;
 
-late  String? routeName;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   routeName = await checkWhichScreen();
-  runApp(const MyApp());
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => EducationStagesProvider()), // تسجيل المزود
+        ChangeNotifierProvider(create: (_) => GroupsProvider()), // تسجيل المزود
+        ChangeNotifierProvider(create: (_) => StudentsProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 Future<String?> checkWhichScreen() async {
@@ -22,11 +33,11 @@ Future<String?> checkWhichScreen() async {
 
   if (androidVersion != null) {
     if (int.tryParse(androidVersion)! >= 12) {
-      //go to custom splash
+      // الذهاب إلى شاشة السبللاش
       return RoutesName.kSplashScreen;
     }
   }
-  return RoutesName.kOnBoardingScreen;
+  return RoutesName.kMainScreen;
 }
 
 Future<String?> getAndroidVersion() async {
@@ -41,20 +52,20 @@ Future<String?> getAndroidVersion() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(ConstValue.kWidthDesignScreen, ConstValue.kHeightDesignScreen),
-      child: MaterialApp(
-        theme: ThemeData(
-
-          scaffoldBackgroundColor: ColorsManger.kBlackColor,
-        ),
-        debugShowCheckedModeBanner: false,
-        routes: RoutesManager.routes,
-        initialRoute: routeName,
-      ),
+      builder: (context, child) {
+        return MaterialApp(
+          theme: ThemeData(
+            scaffoldBackgroundColor: ColorsManger.kBlackColor,
+          ),
+          debugShowCheckedModeBanner: false,
+          routes: RoutesManager.routes,
+          initialRoute: routeName,
+        );
+      },
     );
   }
 }

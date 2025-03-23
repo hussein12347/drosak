@@ -17,6 +17,7 @@ class BodyExploreScreen extends StatefulWidget {
 class _BodyExploreScreenState extends State<BodyExploreScreen> {
   late ExploreAppController controller;
 
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();

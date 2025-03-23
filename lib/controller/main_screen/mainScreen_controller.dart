@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:drosak_mangment_app/core/resources/assets_values_manger.dart';
+import 'package:flutter/material.dart';
 
 import '../../model/main_screen/bottom_nav_bar_tab_model.dart';
-import '../../view/audience/screens/audience_screen.dart';
 import '../../view/education_stages/screens/eduction_screen.dart';
 import '../../view/groups/screens/groups_screen.dart';
 import '../../view/paying/screens/paying_screen.dart';
@@ -12,25 +12,26 @@ import '../../view/students/screens/students_screen.dart';
 class MainScreenController {
   List<BottomNavBarModel> listBottomNavBarModel = [
     BottomNavBarModel(
-        name: 'المراحل التعليمية',
+      iconData:Icons.school  ,
+        name: 'المراحل',
         imageIcon: AssetsValueManger.kBottomNavBar_5,
-        screen: EducationScreen()),
+        screen: const EducationScreen()),
     BottomNavBarModel(
         name: 'المجموعات',
         imageIcon: AssetsValueManger.kBottomNavBar_4,
-        screen: GroupScreen()),
+        screen: const GroupScreen(), iconData: Icons.diversity_3),
     BottomNavBarModel(
         name: 'الطلاب',
         imageIcon: AssetsValueManger.kBottomNavBar_3,
-        screen: StudentsScreen()),
-    BottomNavBarModel(
-        name: 'الحضور',
-        imageIcon: AssetsValueManger.kBottomNavBar_2,
-        screen: AudienceScreen()),
+        screen: const StudentsScreen(), iconData: Icons.people),
+    // BottomNavBarModel(
+    //     name: 'الحضور',
+    //     imageIcon: AssetsValueManger.kBottomNavBar_2,
+    //     screen: const AudienceScreen()),
     BottomNavBarModel(
         name: 'الدفع',
         imageIcon: AssetsValueManger.kBottomNavBar_1,
-        screen: PayingScreen()),
+        screen: const PayingScreen(), iconData: Icons.paid),
   ];
   int currentIndexScreen = 0;
 
