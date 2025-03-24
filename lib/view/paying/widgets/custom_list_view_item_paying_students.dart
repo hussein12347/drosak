@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/resources/provider/educatoin_stages.dart';
+import '../../../core/resources/provider/groups.dart';
 import '../../../core/resources/provider/students_provider.dart';
 import '../../../core/resources/widgets/spaces/horizontal_vertical_space.dart';
 import '../../../model/student_model/student_model.dart';
@@ -38,7 +39,7 @@ class _CustomListViewItemPayingStudentsState
       context,
     );
     final providerEducation = Provider.of<EducationStagesProvider>(context);
-
+    final providerGroup = Provider.of<GroupsProvider>(context);
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 18.0.h),
@@ -67,7 +68,14 @@ class _CustomListViewItemPayingStudentsState
                   itemModel: item,
                   onPressedChangePayingStat: (p0) {
                     provider.ChangePayingState(p0);
-                  },
+                  },  onPressedDelete:  () async {
+                  await provider
+                      .deleteStudent(widget
+                      .listItemStudentModelSelectedByGroup[index]);
+
+                  Navigator.of(context)
+                      .pop(true);
+                },
                 );
               },
               separatorBuilder: (_, __) => SizedBox(height: 24.h),

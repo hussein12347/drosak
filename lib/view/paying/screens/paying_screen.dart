@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../core/resources/const_values.dart';
 import '../../../core/resources/fonts_manger.dart';
 import '../../../core/resources/provider/educatoin_stages.dart';
+import '../../../core/resources/provider/groups.dart';
 import '../widgets/custom_list_view_item_paying_students.dart';
 
 class PayingScreen extends StatefulWidget {
@@ -17,33 +18,32 @@ class PayingScreen extends StatefulWidget {
 
 
 class _PayingScreenState extends State<PayingScreen> {
+  @override
   void initState() {
     super.initState();
 
-    /// 🔹 تحميل قائمة المراحل التعليمية عند فتح الشاشة
-    // final provider =
-    // Provider.of<StudentsProvider>(context, listen: false);
-    //
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final provider = Provider.of<StudentsProvider>(context, listen: false);
+      final providerEducation = Provider.of<EducationStagesProvider>(context, listen: false);
+
+      provider.clearInputs();
+      provider.selectedPayingGroup = null;
+
+      Provider.of<GroupsProvider>(context, listen: false)
+          .getAllItemListOfTable();
 
 
-
-    final provider = Provider.of<StudentsProvider>(context, listen: false);
-    final providerEducation =
-    Provider.of<EducationStagesProvider>(context, listen: false);
-    provider.clearInputs();
-    provider.selectedPayingGroup=null;
-
-    providerEducation.getAllItemList();
-    provider.getAllItemList();
-    // provider.onChangeSelectEducation(selectedEducation);
-    // provider.onChangeSelectStudentByGroup(itemGroupModel)
-
-
+      providerEducation.getAllItemList();
+      provider.getAllItemList();
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<StudentsProvider>(context);
+    final providerEducation = Provider.of<EducationStagesProvider>(context);
+    final providerGroup = Provider.of<GroupsProvider>(context);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(

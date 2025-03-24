@@ -242,6 +242,8 @@ class StudentsProvider with ChangeNotifier{
     await studentOperation.deleteStudentData(id: itemStudentModel.id);
     listItemStudentModel.removeWhere(
             (item) => item.id == itemStudentModel.id);
+    listItemStudentModelSelectedByGroup.removeWhere(
+            (item) => item.id == itemStudentModel.id);
 
     listSearchItemStudentModel.removeWhere(
             (item) => item.id == itemStudentModel.id);

@@ -160,7 +160,7 @@ class _CustomItemGroupState extends State<CustomItemGroup> {
                                                 // Content
                                                 Text(
                                                   ConstValue
-                                                      .kEducationDeleteSure,
+                                                      .kGroupDeleteSure,
                                                   style: TextStyle(
                                                     color: ColorsManger
                                                         .kWhiteColor,

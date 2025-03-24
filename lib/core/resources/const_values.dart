@@ -123,6 +123,10 @@ class ConstValue {
   static const String kAddToTable = "إضافة إلى جدول المواعيد";
   static const String kEducationDeleteSure =
       "هل أنت متأكد من حذف هذه المرحلة التعليمية؟";
+  static const String kStudentDeleteSure =
+      "هل أنت متأكد من حذف هذا الطالب؟";
+  static const String kGroupDeleteSure =
+      "هل أنت متأكد من حذف هذة المجموعة؟";
 
   static const List<String> daysOfWeek = [
     "السبت",

@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:drosak_mangment_app/core/resources/assets_values_manger.dart';
 import 'package:drosak_mangment_app/model/student_model/student_model.dart';
 import 'package:drosak_mangment_app/view/paying/widgets/table_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/resources/colors_manger.dart';
+import '../../../core/resources/const_values.dart';
 import '../../../core/resources/fonts_manger.dart';
 import '../../../core/resources/widgets/spaces/horizontal_vertical_space.dart';
 import '../../../model/student_model/pying_table_item_model.dart';
@@ -16,12 +18,16 @@ class CustomItemPayingStudent extends StatelessWidget {
   final ItemStudentModel itemModel;
   final String number;
   final void Function(PayingTableItemModel) onPressedChangePayingStat;
+  final void Function()? onPressedDelete ;
+
 
   const CustomItemPayingStudent({
     super.key,
     required this.itemModel,
-    required this.number, required this.onPressedChangePayingStat,
+    required this.number, required this.onPressedChangePayingStat, required this.onPressedDelete,
   });
+
+
 
   @override
   // void initState() {
@@ -135,6 +141,104 @@ class CustomItemPayingStudent extends StatelessWidget {
                                 color: ColorsManger.kWhiteColor),
                           ),
                         ),
+                        IconButton(
+                                onPressed: () async {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        backgroundColor:
+                                        ColorsManger.kBlackColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(20.r),
+                                        ),
+                                        contentPadding:
+                                        EdgeInsets.symmetric(
+                                            vertical: 20.h,
+                                            horizontal: 15.w),
+                                        iconPadding: EdgeInsets.zero,
+                                        titlePadding: EdgeInsets.zero,
+                                        content: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            // Header
+                                            Text(
+                                              ConstValue.kDeleteSure,
+                                              style: TextStyle(
+                                                color: ColorsManger
+                                                    .kWhiteColor,
+                                                fontFamily:
+                                                FontsName.geDinerFont,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: FontsSize.f16,
+                                              ),
+                                            ),
+                                            SizedBox(width: 30.w),
+
+                                            SizedBox(height: 20.h),
+
+                                            // Content
+                                            Text(
+                                              ConstValue
+                                                  .kStudentDeleteSure,
+                                              style: TextStyle(
+                                                color: ColorsManger
+                                                    .kWhiteColor,
+                                                fontFamily:
+                                                FontsName.geDinerFont,
+                                                fontSize: FontsSize.f14,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+
+                                            SizedBox(height: 30.h),
+
+                                            // Actions
+                                            Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceEvenly,
+                                              children: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.of(context)
+                                                          .pop(false),
+                                                  child: Text(
+                                                    ConstValue.kNo,
+                                                    style: TextStyle(
+                                                      color: ColorsManger
+                                                          .kWhiteColor,
+                                                      fontSize:
+                                                      FontsSize.f14,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                                TextButton(
+                                                  onPressed: onPressedDelete,
+                                                  child: Text(
+                                                    ConstValue.kDelete,
+                                                    style: TextStyle(
+                                                      color: Colors.red,
+                                                      fontSize:
+                                                      FontsSize.f14,
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ));
+                                },
+                                icon: Icon(CupertinoIcons.delete,color: Colors.redAccent,),
+
+
+
+                        )
                       ],
                     ),
 

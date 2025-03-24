@@ -203,7 +203,7 @@ class _CustomItemStudentState extends State<CustomItemStudent> {
                                                 // Content
                                                 Text(
                                                   ConstValue
-                                                      .kEducationDeleteSure,
+                                                      .kStudentDeleteSure,
                                                   style: TextStyle(
                                                     color: ColorsManger
                                                         .kWhiteColor,
