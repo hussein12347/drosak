@@ -6,9 +6,10 @@ import '../../../model/education_stages/item_stages_model.dart';
 import 'custom_item_stage.dart';
 
 class CustomListViewItemStages extends StatelessWidget {
-  const CustomListViewItemStages({super.key, required this.itemStageModel, required this.onRefresh,});
+  const CustomListViewItemStages({super.key, required this.itemStageModel, required this.onRefresh, required this.isSearch,});
 final List<ItemStageModel> itemStageModel;
 final  RefreshCallback onRefresh;
+final bool isSearch;
 
 
 
@@ -31,7 +32,8 @@ final  RefreshCallback onRefresh;
                 final item = itemStageModel[index];
                 return CustomItemStage(
                   number: (index + 1).toString(),
-                  itemModel: item,
+                  search_update_edit_items:onRefresh ,
+                  itemModel: item, isSearch: isSearch,
                 );
               },
               separatorBuilder: (_, __) => SizedBox(height: 24.h),

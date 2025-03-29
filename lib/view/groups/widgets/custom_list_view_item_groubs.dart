@@ -6,10 +6,10 @@ import '../../../model/groups/item_groub_model.dart';
 import 'custom_item_groub.dart';
 
 class CustomListViewItemGroups extends StatelessWidget {
-  const CustomListViewItemGroups({super.key, required this.listItemGroupModel, required this.onRefresh,});
+  const CustomListViewItemGroups({super.key, required this.listItemGroupModel, required this.onRefresh, required this.isSearch,});
 final List<ItemGroupModel> listItemGroupModel;
 final  RefreshCallback onRefresh;
-
+final bool isSearch;
 
 
 @override
@@ -30,8 +30,9 @@ final  RefreshCallback onRefresh;
                 // final item = provider.listItemGroupModel[index];
                 final item = listItemGroupModel[index];
                 return CustomItemGroup(
+
                   number: (index + 1).toString(),
-                  itemModel: item,
+                  itemModel: item, search_update_edit_items: onRefresh, isSearch: isSearch,
                 );
               },
               separatorBuilder: (_, __) => SizedBox(height: 24.h),

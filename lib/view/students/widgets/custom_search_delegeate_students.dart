@@ -68,7 +68,7 @@ class CustomSearchDelegatedStudent extends SearchDelegate<String> {
                   listItemStudentModel: provider.listSearchItemStudentModel,
                   onRefresh: () async {
                     await provider.getAllSearchItemList(searchWord: query);
-                  },
+                  }, isSearch: true,
                 );
               },
             ),

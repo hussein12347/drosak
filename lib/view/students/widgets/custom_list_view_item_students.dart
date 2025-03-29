@@ -6,9 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'custom_item_student.dart';
 
 class CustomListViewItemStudents extends StatelessWidget {
-  const CustomListViewItemStudents({super.key, required this.listItemStudentModel, required this.onRefresh,});
+  const CustomListViewItemStudents({super.key, required this.listItemStudentModel, required this.onRefresh, required this.isSearch,});
 final List<ItemStudentModel> listItemStudentModel;
 final  RefreshCallback onRefresh;
+final bool isSearch;
 
 
 
@@ -31,7 +32,7 @@ final  RefreshCallback onRefresh;
                 final item = listItemStudentModel[index];
                 return CustomItemStudent(
                   number: (index + 1).toString(),
-                  itemModel: item,
+                  itemModel: item, isSearch: isSearch,search_update_edit_items: onRefresh,
                 );
               },
               separatorBuilder: (_, __) => SizedBox(height: 24.h),

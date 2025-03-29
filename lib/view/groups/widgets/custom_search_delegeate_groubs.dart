@@ -68,7 +68,7 @@ class CustomSearchDelegatedGroup extends SearchDelegate<String> {
                   listItemGroupModel: provider.listSearchItemGroupModel,
                   onRefresh: () async {
                     await provider.getAllSearchItemList(searchWord: query);
-                  },
+                  }, isSearch: true,
                 );
               },
             ),

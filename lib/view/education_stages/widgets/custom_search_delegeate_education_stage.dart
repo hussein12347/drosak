@@ -68,7 +68,7 @@ class CustomSearchDelegated extends SearchDelegate<String> {
                   itemStageModel: provider.listSearchItemStageModel,
                   onRefresh: () async {
                     await provider.getAllSearchItemList(searchWord: query);
-                  },
+                  }, isSearch: true,
                 );
               },
             ),

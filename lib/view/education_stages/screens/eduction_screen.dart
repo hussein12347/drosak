@@ -41,7 +41,7 @@ class _EducationScreenState extends State<EducationScreen> {
               .listItemStageModel,
           onRefresh: () async {
             await provider.getAllItemList();
-          },
+          }, isSearch: false,
 
         ),
       ),

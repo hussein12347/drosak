@@ -21,11 +21,13 @@ import '../../../model/groups/time_day_group_model.dart';
 class CustomItemStudent extends StatefulWidget {
   final ItemStudentModel itemModel;
   final String number;
+  final bool isSearch;
+  final VoidCallback? search_update_edit_items;
 
   const CustomItemStudent({
     super.key,
     required this.itemModel,
-    required this.number,
+    required this.number, required this.isSearch,  this.search_update_edit_items,
   });
 
   @override
@@ -156,7 +158,8 @@ class _CustomItemStudentState extends State<CustomItemStudent> {
                             PopupMenuItem(
                                 onTap: () async {
                                      await provider.openEditBottomSheet( context: context,itemStudentModel:widget.itemModel, educationId: providerGroup.listItemGroupModel.firstWhere((element) => element.id==widget.itemModel.groupId).education_id, InitialItemGroupModel: providerGroup.listItemGroupModel.firstWhere((element) => element.id== widget.itemModel.groupId), initialStageItem:EducationProvider.listItemStageModel.firstWhere((element) => element.id== providerGroup.listItemGroupModel.firstWhere((element) => element.id==widget.itemModel.groupId).education_id) ,);
-                                },
+                                     widget.isSearch? widget.search_update_edit_items:null;
+                                     },
                                 child: Text(
                                   ConstValue.kEdit,
                                   style: TextStyle(
@@ -276,7 +279,7 @@ class _CustomItemStudentState extends State<CustomItemStudent> {
                             Icons.more_vert,
                             color: ColorsManger.kWhiteColor,
                           ),
-                        )
+                        ),
                       ],
                     ),
                     HorizontalVerticalSpace(

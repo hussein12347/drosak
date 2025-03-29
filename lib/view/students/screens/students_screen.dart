@@ -45,6 +45,7 @@ class _StudentsScreenState extends State<StudentsScreen> {
             },
             title: ConstValue.kStudents),
         body: CustomListViewItemStudents(
+          isSearch: false,
           onRefresh: () async {
             await provider.getAllItemList();
             // await provider.getAllItemListOfTable();

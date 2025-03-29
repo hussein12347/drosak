@@ -16,11 +16,13 @@ import '../../../model/education_stages/item_stages_model.dart';
 class CustomItemStage extends StatefulWidget {
   final ItemStageModel itemModel;
   final String number;
+  final bool isSearch;
+  final VoidCallback? search_update_edit_items;
 
   const CustomItemStage({
     super.key,
     required this.itemModel,
-    required this.number,
+    required this.number, required this.isSearch,  this.search_update_edit_items,
   });
 
   @override
@@ -122,6 +124,7 @@ class _CustomItemStageState extends State<CustomItemStage> {
                   ));
         } else if (direction == DismissDirection.endToStart) {
           provider.openEditBottomSheet(context: context, itemStageModel: widget.itemModel);
+          (widget.isSearch)?widget.search_update_edit_items:null;
           return false;
         }
         print(isConfirmDelete);

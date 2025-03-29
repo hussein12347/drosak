@@ -17,11 +17,13 @@ import '../../../model/groups/time_day_group_model.dart';
 class CustomItemGroup extends StatefulWidget {
   final ItemGroupModel itemModel;
   final String number;
+  final bool isSearch;
+  final VoidCallback? search_update_edit_items;
 
   const CustomItemGroup({
     super.key,
     required this.itemModel,
-    required this.number,
+    required this.number, required this.isSearch, this.search_update_edit_items,
   });
 
   @override
@@ -113,6 +115,7 @@ class _CustomItemGroupState extends State<CustomItemGroup> {
                             PopupMenuItem(
                                 onTap: () {
                                   provider.editGroup(listTimeDayGroupModelEdit: listTimeDayGroupModel,context: context,itemGroupModel:widget.itemModel ,);
+                                  widget.isSearch?widget.search_update_edit_items:null;
                                 },
                                 child: Text(
                                   ConstValue.kEdit,

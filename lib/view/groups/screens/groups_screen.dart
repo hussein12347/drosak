@@ -47,7 +47,7 @@ class _GroupScreenState extends State<GroupScreen> {
             await provider.getAllItemList();
             await provider.getAllItemListOfTable();
           },
-          listItemGroupModel:provider.listItemGroupModel ,
+          listItemGroupModel:provider.listItemGroupModel, isSearch: false ,
         ),
       ),
     );
